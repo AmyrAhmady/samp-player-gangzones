@@ -1,4 +1,6 @@
-#include <Pawn.RakNet>
+#if !defined PAWNRAKNET_INC_
+	#include <Pawn.RakNet>
+#endif
 
 #define MAX_PLAYER_GZ 128
 #define PLAYER_GZ_DEFAULT_COLOR 0xFFFFFFAA
