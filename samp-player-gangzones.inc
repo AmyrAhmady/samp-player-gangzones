@@ -2,7 +2,10 @@
 	#include <Pawn.RakNet>
 #endif
 
-#define MAX_PLAYER_GZ 128
+#if !defined MAX_PLAYER_GZ
+	#define MAX_PLAYER_GZ 256
+#endif
+
 #define PLAYER_GZ_DEFAULT_COLOR 0xFFFFFFAA
 
 static enum _:E_PLAYER_GZ_DATA
