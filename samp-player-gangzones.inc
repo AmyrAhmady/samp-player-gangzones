@@ -33,6 +33,8 @@ stock PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:m
 		}
 	}
 
+	if(idx > MAX_PLAYER_GZ-1) return -1;
+
 	PlayerGangZoneData[playerid][idx][player_GZ_MinX]	= minx;
 	PlayerGangZoneData[playerid][idx][player_GZ_MinY]	= miny;
 	PlayerGangZoneData[playerid][idx][player_GZ_MaxX]	= maxx;
@@ -46,7 +48,7 @@ stock PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:m
 
 stock PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
 {
-	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used]) return 0;
+	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Color] = color;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown] = true;
@@ -89,7 +91,7 @@ stock PlayerGangZoneHide(playerid, gangzoneid)
 
 stock PlayerGangZoneDestroy(playerid, gangzoneid)
 {
-	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used]) return 0;
+	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 	if(PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown])
 		PlayerGangZoneHide(playerid, gangzoneid);
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used]	= false;
