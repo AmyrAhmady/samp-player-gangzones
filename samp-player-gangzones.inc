@@ -89,7 +89,7 @@ stock PlayerGangZoneDestroy(playerid, gangzoneid)
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used]) return 0;
 	if(PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown])
 		PlayerGangZoneHide(playerid, gangzoneid);
-	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] = false;
+	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used]	= false;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_MinX]	= 0.0;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_MinY]	= 0.0;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_MaxX]	= 0.0;
