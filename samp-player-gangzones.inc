@@ -114,3 +114,4 @@ public OnPlayerDisconnect(playerid, reason)
 	#define _ALS_OnPlayerDisconnect
 #endif
 #define OnPlayerDisconnect pGZ_OnPlayerDisconnect
+forward pGZ_OnPlayerDisconnect(playerid, reason);
