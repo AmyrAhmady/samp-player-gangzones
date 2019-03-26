@@ -25,13 +25,10 @@ Include in your code and begin using the library:
 ## Functions
 
 ```pawn
-PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:maxy)
-
-PlayerGangZoneDestroy(playerid, gangzoneid)
-
-PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
-
-PlayerGangZoneHide(playerid, gangzoneid)
+PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:maxy);
+PlayerGangZoneDestroy(playerid, gangzoneid);
+PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR);
+PlayerGangZoneHide(playerid, gangzoneid);
 ```
 
 ## Testing
