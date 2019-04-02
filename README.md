@@ -29,6 +29,8 @@ PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:maxy);
 PlayerGangZoneDestroy(playerid, gangzoneid);
 PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR);
 PlayerGangZoneHide(playerid, gangzoneid);
+PlayerGangZoneFlash(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_FLASH_COL);
+PlayerGangZoneStopFlash(playerid, gangzoneid);
 ```
 
 ## Testing
