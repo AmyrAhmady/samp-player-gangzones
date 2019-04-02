@@ -38,7 +38,7 @@ stock PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:m
 
 	if(idx > MAX_PLAYER_GZ-1) return -1;
 
-	PlayerGangZoneData[playerid][idx][player_GZ_MinX] s= minx;
+	PlayerGangZoneData[playerid][idx][player_GZ_MinX] = minx;
 	PlayerGangZoneData[playerid][idx][player_GZ_MinY] = miny;
 	PlayerGangZoneData[playerid][idx][player_GZ_MaxX] = maxx;
 	PlayerGangZoneData[playerid][idx][player_GZ_MaxY] = maxy;
@@ -157,10 +157,7 @@ public OnPlayerDisconnect(playerid, reason)
 {
 	for (new i = 0; i < MAX_PLAYER_GZ; ++i)
 		PlayerGangZoneData[playerid][i][player_GZ_Used] = false;
-	#if defined pGZ_OnPlayerDisconnect
-		pGZ_OnPlayerDisconnect(playerid,  reason);
-	#endif
-	return 1;
+	return CallLocalFunction("pGZ_OnPlayerDisconnect", "ii", playerid, reason);
 }
 
 #if defined _ALS_OnPlayerDisconnect
