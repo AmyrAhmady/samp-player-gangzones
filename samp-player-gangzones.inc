@@ -74,7 +74,8 @@ stock PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
 stock PlayerGangZoneHide(playerid, gangzoneid)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || 
-		!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown]) return 0;
+		!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown] ||
+		gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown] = false;
 	new BitStream:gz_bs = BS_New();
