@@ -3,5 +3,5 @@
 // To update the version number for a new release, run "sampctl package release"
 
 #define SAMP_PLAYER_GANGZONES_VERSION_MAJOR (1)
-#define SAMP_PLAYER_GANGZONES_VERSION_MINOR (0)
-#define SAMP_PLAYER_GANGZONES_VERSION_PATCH (2)
+#define SAMP_PLAYER_GANGZONES_VERSION_MINOR (1)
+#define SAMP_PLAYER_GANGZONES_VERSION_PATCH (0)
