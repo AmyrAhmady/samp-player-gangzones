@@ -6,6 +6,8 @@ Uses Pawn.RakNet to send RPCs.
 
 PS: Yes. I know test.pwn file isn't actually a unit test script. You need to go in game and use those commands. sorry!
 
+Thanks to @J0shES for flash functions.
+
 [![sampctl](https://shields.southcla.ws/badge/sampctl-samp--player--gangzones-2f2f2f.svg?style=for-the-badge)](https://github.com/AmyrAhmady/samp-player-gangzones)
 
 ## Installation
