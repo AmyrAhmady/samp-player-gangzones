@@ -1,11 +1,11 @@
-#if defined _inc_samp-player-gangzone
-	#undef _inc_samp-player-gangzone
+#if defined _inc_samp_player_gangzone
+	#undef _inc_samp_player_gangzone
 #endif
 
-#if defined _samp-player_gangzone_included
+#if defined _samp_player_gangzone_included
 	#endinput
 #endif
-#define _samp-player_gangzone_included
+#define _samp_player_gangzone_included
 
 #if !defined PAWNRAKNET_INC_
 	#include <Pawn.RakNet>
