@@ -111,7 +111,7 @@ stock Player_GangZoneFlash(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_FLASH
 		PR_UINT32, abgr_color
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x79);
+	PR_SendRPC(gz_bs, playerid, 0x79);
 	BS_Delete(gz_bs);
 	return 1;
 }
@@ -132,7 +132,7 @@ stock Player_GangZoneStopFlash(playerid, gangzoneid)
 		PR_UINT16, 1023 - gangzoneid
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x55);
+	PR_SendRPC(gz_bs, playerid, 0x55);
 	BS_Delete(gz_bs);
 	return 1;
 }
@@ -141,7 +141,7 @@ stock Player_GangZoneDestroy(playerid, gangzoneid)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 	if(PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown])
-		PlayerGangZoneHide(playerid, gangzoneid);
+		Player_GangZoneHide(playerid, gangzoneid);
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Flashing] = false;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] = false;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_MinX] = 0.0;
