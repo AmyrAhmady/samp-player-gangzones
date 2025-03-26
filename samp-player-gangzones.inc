@@ -24,7 +24,7 @@ static enum _:E_PLAYER_GZ_DATA
 
 static PlayerGangZoneData[MAX_PLAYERS][MAX_PLAYER_GZ][E_PLAYER_GZ_DATA];
 
-stock PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:maxy)
+stock Player_GangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:maxy)
 {
 	new idx;
 	for (new i = 0; i < MAX_PLAYER_GZ; ++i)
@@ -51,7 +51,7 @@ stock PlayerGangZoneCreate(playerid, Float:minx, Float:miny, Float:maxx, Float:m
 	return idx;
 }
 
-stock PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
+stock Player_GangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 
@@ -71,12 +71,12 @@ stock PlayerGangZoneShow(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_COLOR)
 		PR_UINT32, abgr_color
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x6C);
+	PR_SendRPC(gz_bs, playerid, 0x6C);
 	BS_Delete(gz_bs);
 	return 1;
 }
 
-stock PlayerGangZoneHide(playerid, gangzoneid)
+stock Player_GangZoneHide(playerid, gangzoneid)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || 
 		!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown] ||
@@ -90,12 +90,12 @@ stock PlayerGangZoneHide(playerid, gangzoneid)
 		PR_UINT16, 1023 - gangzoneid
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x78);
+	PR_SendRPC(gz_bs, playerid, 0x78);
 	BS_Delete(gz_bs);
 	return 1;
 }
 
-stock PlayerGangZoneFlash(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_FLASH_COL)
+stock Player_GangZoneFlash(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_FLASH_COL)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 
@@ -111,12 +111,12 @@ stock PlayerGangZoneFlash(playerid, gangzoneid, color = PLAYER_GZ_DEFAULT_FLASH_
 		PR_UINT32, abgr_color
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x79);
+	PR_SendRPC(gz_bs, playerid, 0x79);
 	BS_Delete(gz_bs);
 	return 1;
 }
 
-stock PlayerGangZoneStopFlash(playerid, gangzoneid)
+stock Player_GangZoneStopFlash(playerid, gangzoneid)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] ||
 		!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Flashing] ||
@@ -132,16 +132,16 @@ stock PlayerGangZoneStopFlash(playerid, gangzoneid)
 		PR_UINT16, 1023 - gangzoneid
 	);
 		
-	BS_RPC(gz_bs, playerid, 0x55);
+	PR_SendRPC(gz_bs, playerid, 0x55);
 	BS_Delete(gz_bs);
 	return 1;
 }
 
-stock PlayerGangZoneDestroy(playerid, gangzoneid)
+stock Player_GangZoneDestroy(playerid, gangzoneid)
 {
 	if(!PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] || gangzoneid > MAX_PLAYER_GZ-1 || gangzoneid < 0) return 0;
 	if(PlayerGangZoneData[playerid][gangzoneid][player_GZ_Shown])
-		PlayerGangZoneHide(playerid, gangzoneid);
+		Player_GangZoneHide(playerid, gangzoneid);
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Flashing] = false;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_Used] = false;
 	PlayerGangZoneData[playerid][gangzoneid][player_GZ_MinX] = 0.0;
