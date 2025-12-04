@@ -20,22 +20,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
 {
 	if (!strcmp("/gzcreate", cmdtext, true))
 	{
-		gangzone = PlayerGangZoneCreate(playerid, 1082.962, -2787.229, 2942.549, -1859.51);
+		gangzone = Player_GangZoneCreate(playerid, 1082.962, -2787.229, 2942.549, -1859.51);
 		return 1;
 	}
 	if (!strcmp("/gzshow", cmdtext, true))
 	{
-		PlayerGangZoneShow(playerid, gangzone, 0xFF000099);
+		Player_GangZoneShow(playerid, gangzone, 0xFF000099);
 		return 1;
 	}
 	if (!strcmp("/gzhide", cmdtext, true))
 	{
-		PlayerGangZoneHide(playerid, gangzone);
+		Player_GangZoneHide(playerid, gangzone);
 		return 1;
 	}
 	if (!strcmp("/gzdelete", cmdtext, true))
 	{
-		PlayerGangZoneDestroy(playerid, gangzone);
+		Player_GangZoneDestroy(playerid, gangzone);
 		return 1;
 	}
 	return 0;
